@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Calculator Task One</title>
+        <script></script>
     </head>
     <body>
         <table>
@@ -9,63 +10,148 @@
             <tr>
                 <td><input type="number" id="firstno"></td>
                 <td>
-                    <select name="operator" id="operator-1">
-                        <option value="+">+</option>
-                        <option value="-">-</option>
-                        <option value="*">*</option>
-                        <option value="/">/</option>
+                    <select name="operator" id="operator_0">
+                        <option value="addition">+</option>
+                        <option value="substraction">-</option>
+                        <option value="multiplication">*</option>
+                        <option value="division">/</option>
                     </select>
                 </td>
                 <td><input type="number" id="secondno"></td>
-                <td><input type="button" id="selectedoperation" value="="><span id="third3" style="font-weight: bold;">Press = Mark!</span></td>
+                <td><input type="button" id="selectedoperation" value="=" onclick="simplearithematic()"><span id="third" style="font-weight: bold;" >Press = Mark!</span></td>
             </tr>
         </table>
 
         <table>
             <caption>Task 2: Calculator with test box and option button</caption>
             <tr>
-                <td><input type="number" id="firstno"></td>
+                <td><input type="number" id="firstno1"></td>
             </tr>
             <tr>
                 <td>
                    
-                            <label><input type="radio" name="operator"  id="operator-2" value="+">Addition</label><br>
+                            <label><input type="radio" name="operator"  id="operator_2" value="addition">Addition</label><br>
                                                        
-                            <label><input  type="radio"  name="operator" id="operator-2" value="-">Substraction</label><br>
+                            <label><input  type="radio"  name="operator" id="operator_2" value="substraction">Substraction</label><br>
                            
-                            <label></label><input  type="radio"  name="operator" id="operator-2" value="*">Multiplication</label><br>
+                            <label></label><input  type="radio"  name="operator" id="operator_2" value="multiplication">Multiplication</label><br>
                            
-                            <label><input type="radio"  name="operator" id="operator-2" value="/">Division</label><br>
+                            <label><input type="radio"  name="operator" id="operator_2" value="division">Division</label><br>
                    
                     
                 </td>
             </tr>
             <tr>
-                <td><input type="number" id="secondno"></td>
-                <td><input type="button" id="selectedoperation" value="="><span id="third3" style="font-weight: bold;">Press = Mark!</span></td>
+                <td><input type="number" id="secondno1"></td>
+                <td><input type="button" id="selectedoperation" value="=" onclick="selectedoperation()"><span id="third2" style="font-weight: bold;">Press = Mark!</span></td>
             </tr>
         </table>
         <table>
             <caption>Task 3: Calculator with test box and Increment/Decrement</caption>
             <tr>
-                <td><button id="fib" style="font-size: 30px;">&#129169;</button></td>
-                <td><input type="number" id="firstno3"></td>
-                <td><button id="sib" style="font-size: 30px;">&#129171;</button></td>
+                <td><button id="fib" style="font-size: 30px;" onclick="incrementoperator('increment', 'firstno3')">&#129169;</button></td>
+                <td><input type="number" id="firstno3" value="0"></td>
+                <td><button id="sib" style="font-size: 30px;" onclick="incrementoperator('decrement', 'firstno3')">&#129171;</button></td>
                 <td>
-                    <select name="operator" id="operator-1">
-                        <option value="+">+</option>
-                        <option value="-">-</option>
-                        <option value="*">*</option>
-                        <option value="/">/</option>
+                    <select name="operator" id="operator_3">
+                        <option value="addition">+</option>
+                        <option value="substraction">-</option>
+                        <option value="multiplication">*</option>
+                        <option value="division">/</option>
                     </select>
                 </td>
-                <td><button id="fib1" style="font-size: 30px;">&#129169;</button></td>
-                <td><input type="number" id="secondno3"></td>
-                <td><button id="sib1" style="font-size: 30px;">&#129171;</button></td>
-                <td><input type="button" id="selectedoperation" value="="><span id="third3" style="font-weight: bold;">Press = Mark!</span></td>
+                <td><button id="fib1" style="font-size: 30px;" onclick="incrementoperator('increment', 'secondno3')">&#129169;</button></td>
+                <td><input type="number" id="secondno3" value="0"></td>
+                <td><button id="sib1" style="font-size: 30px;" onclick="incrementoperator('decrement', 'secondno3')">&#129171;</button></td>
+                <td><input type="button" id="selectedoperation3" value="=" onclick="selectedoperation3()"><span id="third3" style="font-weight: bold;">Press = Mark!</span></td>
             </tr>
         </table>
           
 
     </body>
+
+    <script >
+        function simplearithematic(){
+          let  firstno=parseFloat(document.getElementById('firstno').value);
+          let  operator_0=document.getElementById('operator_0').value;
+          let  secondno=parseFloat(document.getElementById('secondno').value);
+          
+            if(operator_0=="addition"){
+                sum=firstno+secondno;
+            } else if(operator_0=="substraction"){
+                sum=firstno-secondno;
+            } else if(operator_0=="multiplication"){
+                sum=firstno*secondno;
+            } else if(operator_0=="division"){
+                sum=firstno/secondno;
+            } else {
+                    alert("Please select the operation you want to perform");
+                }
+            
+                document.getElementById('third').innerHTML=sum;
+        }
+
+
+        function selectedoperation(){
+            let  firstno1=parseFloat(document.getElementById('firstno1').value);
+          let  operator_2=document.getElementById('operator_2').value;
+          let  secondno1=parseFloat(document.getElementById('secondno1').value);
+          
+            if(operator_2=="addition"){
+                sum=firstno1+secondno1;
+            } else if(operator_2=="substraction"){
+                sum=firstno1-secondno1;
+            } else if(operator_2=="multiplication"){
+                sum=firstno1*secondno1;
+            } else if(operator_2=="division"){
+                sum=firstno1/secondno1;
+            } else {
+                    alert("Please select the operation you want to perform");
+                }
+            
+                document.getElementById('third2').innerHTML=sum;
+        }
+
+        function incrementoperator(action, placeofaction){
+        
+            if(action=='increment'){
+               
+                var actualvalue=0;
+                document.getElementById(placeofaction).value= 1 + parseFloat(document.getElementById(placeofaction).value)
+               
+                
+            }
+
+            if(action=='decrement'){
+                var actualvalue=0;
+                actualvalue=document.getElementById(placeofaction).value
+                actualvalue-=1;
+                document.getElementById(placeofaction).value=actualvalue
+            }
+
+        }
+
+        function selectedoperation3(){
+
+          let  firstno3=parseFloat(document.getElementById('firstno3').value);
+          let  operator_3=document.getElementById('operator_3').value;
+          let  secondno3=parseFloat(document.getElementById('secondno3').value);
+
+            if(operator_3=="addition"){
+                sum=firstno3+secondno3;
+            } else if(operator_3=="substraction"){
+                sum=firstno3-secondno3;
+            } else if(operator_3=="multiplication"){
+                sum=firstno3*secondno3;
+            } else if(operator_3=="division"){
+                sum=firstno3/secondno3;
+            } else {
+                    alert("Please select the operation you want to perform");
+                }
+            
+                document.getElementById('third3').innerHTML=sum;
+        }
+
+    </script>
+
 </html>
